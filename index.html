@@ -3,12 +3,22 @@
 
 <head>
   <title>Chart.js example</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-  <h1 id="wait_msg">Please wait...</h1>
-  <div>
-    <canvas id="myChart"></canvas>
+  <h1>Chart.js demo</h1>
+  <div id="charts">
+    <div id="bar_chart1_div">
+      <h1 class="wait_msg">Chart is loading...</h1>
+      <canvas id="bar_chart1"></canvas>
+    </div>
+    <div id="pie_chart1_div">
+      <canvas id="pie_chart1"></canvas>
+    </div>
+    <div id="pie_chart2_div">
+      <canvas id="pie_chart2"></canvas>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

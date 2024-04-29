@@ -1,12 +1,12 @@
 $(document).ready(function () {
 
-    function display_bar_chart(data, chart_element, label) {
+    function display_chart(data, chart_element, chart_type, label) {
         var data_array = Object.keys(data).map((key) => [key, data[key]]); // Convert JS to object to array
         //console.log(data_array);
 
         const chart = document.getElementById(chart_element);
         new Chart(chart, {
-            type: "bar",
+            type: chart_type,
             data: {
                 labels: data_array.map(row => row[0]),
                 datasets: [
@@ -19,25 +19,7 @@ $(document).ready(function () {
         });
     }
 
-    function display_pie_chart(data, chart_element, label) {
-        var data_array = Object.keys(data).map((key) => [key, data[key]]);
-
-        const chart = document.getElementById(chart_element);
-        new Chart(chart, {
-            type: "pie",
-            data: {
-                labels: data_array.map(row => row[0]),
-                datasets: [
-                    {
-                        label: label,
-                        data: data_array.map(row => row[1])
-                    }
-                ]
-            }
-        });
-    }
-
-    // Sales by date chart
+    // Sales by date bar chart
     $.ajax({
         url: "sales_by_date_data.php",
         type: "post",
@@ -45,7 +27,22 @@ $(document).ready(function () {
         success: function (response) {
             //console.log(response);
             $("#bar_chart1_div .wait_msg").remove();
-            display_bar_chart(response, "bar_chart1", "Sales");
+            display_chart(response, "bar_chart1", "bar", "Sales");
+        },
+        error: function (response) {
+            //console.log(response);
+        }
+    });
+
+    // Sales by date line chart
+    $.ajax({
+        url: "sales_by_date_data.php",
+        type: "post",
+        dataType: "json",
+        success: function (response) {
+            //console.log(response);
+            $("#line_chart1_div .wait_msg").remove();
+            display_chart(response, "line_chart1", "line", "Sales");
         },
         error: function (response) {
             //console.log(response);
@@ -59,7 +56,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (response) {
             //console.log(response);
-            display_pie_chart(response, "pie_chart1", "Sales");
+            display_chart(response, "pie_chart1", "pie", "Sales");
         },
         error: function (response) {
             //console.log(response);
@@ -72,7 +69,7 @@ $(document).ready(function () {
         type: "post",
         dataType: "json",
         success: function (response) {
-            display_pie_chart(response, "pie_chart2", "Payments");
+            display_chart(response, "pie_chart2", "pie", "Payments");
         },
         error: function (response) {
             // console.log(response);

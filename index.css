@@ -3,7 +3,7 @@ html, body {
     padding: 0;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
 }
 
@@ -14,7 +14,7 @@ h1 {
     gap: 5em;
 }
 
-#bar_chart1_div {
+#bar_chart1_div, #line_chart1_div {
     width: 80%;
 }
 

@@ -68,11 +68,24 @@ $(document).ready(function () {
         url: "category_data.php",
         type: "post",
         dataType: "json",
-        success: function(response) {
+        success: function (response) {
             display_chart(response, "bar_chart2", "bar", "Sales by category");
         },
-        error: function(response) {
+        error: function (response) {
             // console.log(response);
         }
-    })
+    });
+
+    // Customers' rating chart
+    $.ajax({
+        url: "rating_data.php",
+        type: "post",
+        dataType: "json",
+        success: function (response) {
+            display_chart(response, "pie_chart3", "pie", "Customers' rating");
+        },
+        error: function (response) {
+            // console.log(response);
+        }
+    });
 });

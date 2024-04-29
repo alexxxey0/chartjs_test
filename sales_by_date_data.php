@@ -30,9 +30,10 @@ for ($i = 1; $i < sizeof($json_data); $i++) {
     if ($json_data[$i][4] === "Male") $sales_by_gender[$date]["Male"]++;
     else $sales_by_gender[$date]["Female"]++;
 
-    uksort($sales, "compare_date_keys");
-    uksort($sales_by_gender, "compare_date_keys");
 }
+
+uksort($sales, "compare_date_keys");
+uksort($sales_by_gender, "compare_date_keys");
 
 //print_r($sales_by_gender);
 

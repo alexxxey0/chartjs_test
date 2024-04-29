@@ -24,7 +24,7 @@ for ($i = 1; $i < sizeof($json_data); $i++) {
         if (!array_key_exists($rating . "-" . ($rating + 1), $ratings)) $ratings[$rating . "-" . ($rating + 1)] = 1;
         else $ratings[$rating . "-" . ($rating + 1)]++;
     }
-    uksort($ratings, "higher_rating");
 }
+uksort($ratings, "higher_rating");
 
 echo json_encode($ratings);

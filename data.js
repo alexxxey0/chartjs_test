@@ -43,6 +43,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (response) {
             //console.log(response);
+            $("#pie_chart1_div .wait_msg").remove();
             display_chart(response, "pie_chart1", "pie", "Sales");
         },
         error: function (response) {
@@ -56,6 +57,7 @@ $(document).ready(function () {
         type: "post",
         dataType: "json",
         success: function (response) {
+            $("#pie_chart2_div .wait_msg").remove();
             display_chart(response, "pie_chart2", "pie", "Payments");
         },
         error: function (response) {
@@ -69,6 +71,7 @@ $(document).ready(function () {
         type: "post",
         dataType: "json",
         success: function (response) {
+            $("#bar_chart2_div .wait_msg").remove();
             display_chart(response, "bar_chart2", "bar", "Sales by category");
         },
         error: function (response) {
@@ -82,6 +85,7 @@ $(document).ready(function () {
         type: "post",
         dataType: "json",
         success: function (response) {
+            $("#pie_chart3_div .wait_msg").remove();
             display_chart(response, "pie_chart3", "pie", "Customers' rating");
         },
         error: function (response) {

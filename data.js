@@ -26,6 +26,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (response) {
             //console.log(response);
+            $("#wait_msg").remove();
             data = response;
             display_chart(data);
         },

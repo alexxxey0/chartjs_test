@@ -28,21 +28,8 @@ $(document).ready(function () {
             //console.log(response);
             $("#bar_chart1_div .wait_msg").remove();
             display_chart(response, "bar_chart1", "bar", "Sales");
-        },
-        error: function (response) {
-            //console.log(response);
-        }
-    });
-
-    // Sales by date line chart
-    $.ajax({
-        url: "sales_by_date_data.php",
-        type: "post",
-        dataType: "json",
-        success: function (response) {
-            //console.log(response);
             $("#line_chart1_div .wait_msg").remove();
-            display_chart(response, "line_chart1", "line", "Sales");
+            display_chart(response, "line_chart1", "line", "Sales")
         },
         error: function (response) {
             //console.log(response);

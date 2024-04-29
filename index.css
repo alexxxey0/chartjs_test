@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family: "Montserrat";
 }
 
 h1, h2 {
@@ -12,12 +13,30 @@ h1, h2 {
     flex-direction: column;
     align-items: center;
     gap: 5em;
+    margin-bottom: 1%;
 }
 
 #bar_chart1_div, #line_chart1_div {
     width: 80%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 #pie_chart1_div, #pie_chart2_div {
-    width: 30%;
+    padding: 1%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+#pie_charts {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+
+#pie_charts > * {
+    width: 50%;
 }

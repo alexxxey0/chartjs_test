@@ -27,9 +27,9 @@ $(document).ready(function () {
         success: function (response) {
             //console.log(response);
             $("#bar_chart1_div .wait_msg").remove();
-            display_chart(response, "bar_chart1", "bar", "Sales");
+            display_chart(response.total_sales, "bar_chart1", "bar", "Sales");
             $("#line_chart1_div .wait_msg").remove();
-            display_chart(response, "line_chart1", "line", "Sales")
+            display_chart(response.total_sales, "line_chart1", "line", "Sales");
         },
         error: function (response) {
             //console.log(response);
@@ -62,4 +62,17 @@ $(document).ready(function () {
             // console.log(response);
         }
     });
+
+    // Sales by category chart
+    $.ajax({
+        url: "category_data.php",
+        type: "post",
+        dataType: "json",
+        success: function(response) {
+            display_chart(response, "bar_chart2", "bar", "Sales by category");
+        },
+        error: function(response) {
+            // console.log(response);
+        }
+    })
 });

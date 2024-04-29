@@ -2,7 +2,8 @@
 $csv_data = file_get_contents("supermarket_sales.csv");
 $json_data = array_map("str_getcsv", explode("\n", $csv_data));
 
-$dates = array();
+$sales = array();
+$sales_by_gender = array();
 $day_regex = "/\/[0-9]+\//";
 $month_regex = "/^[0-9]+\//";
 $year_regex = "/\/[0-9]+$/";
@@ -19,12 +20,20 @@ for ($i = 1; $i < sizeof($json_data); $i++) {
     preg_match($year_regex, $date, $year_match);
     
     $date = str_replace("/", "", $year_match[0]) . "-" . str_replace("/", "", $month_match[0]) . "-" . str_replace("/", "", $day_match[0]);
-    if (!array_key_exists($date, $dates)) $dates[$date] = 1;
-    else $dates[$date]++;
+    if (!array_key_exists($date, $sales)) $sales[$date] = 1;
+    else $sales[$date]++;
 
-    uksort($dates, "compare_date_keys");
+    if (!array_key_exists($date, $sales_by_gender)) {
+        $sales_by_gender[$date]["Male"] = 0;
+        $sales_by_gender[$date]["Female"] = 0;
+    }
+    if ($json_data[$i][4] === "Male") $sales_by_gender[$date]["Male"]++;
+    else $sales_by_gender[$date]["Female"]++;
+
+    uksort($sales, "compare_date_keys");
+    uksort($sales_by_gender, "compare_date_keys");
 }
 
-//print_r($dates);
+//print_r($sales_by_gender);
 
-echo json_encode($dates);
+echo json_encode(array("total_sales" => $sales, "sales_by_gender" => $sales_by_gender));

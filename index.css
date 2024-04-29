@@ -16,7 +16,7 @@ h1, h2 {
     margin-bottom: 1%;
 }
 
-#bar_chart1_div, #line_chart1_div {
+#bar_chart1_div, #line_chart1_div, #bar_chart2_div {
     width: 80%;
     border: 2px solid black;
     border-radius: 10px;

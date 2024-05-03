@@ -19,11 +19,51 @@ $(document).ready(function () {
         });
     }
 
+    function destroy_chart(chart_name) {
+        let chartStatus = Chart.getChart(chart_name); // <canvas> id
+        if (chartStatus != undefined) {
+            chartStatus.destroy();
+        }
+    }
+
     // Sales by date bar chart
+    var date_from = "";
+    var date_until = "";
+    $(".refresh_btn").on("click", function () {
+        date_from = $("#date_from").val();
+        date_until = $("#date_until").val();
+
+        $.ajax({
+            url: "sales_by_date_data.php",
+            type: "post",
+            dataType: "json",
+            data: {
+                "date_from": date_from,
+                "date_until": date_until
+            },
+            success: function (response) {
+                //console.log(response);
+                destroy_chart("bar_chart1");
+                destroy_chart("line_chart1");
+                $("#bar_chart1_div .wait_msg").remove();
+                display_chart(response.total_sales, "bar_chart1", "bar", "Sales");
+                $("#line_chart1_div .wait_msg").remove();
+                display_chart(response.total_sales, "line_chart1", "line", "Sales");
+            },
+            error: function (response) {
+                //console.log(response);
+            }
+        });
+    });
+
     $.ajax({
         url: "sales_by_date_data.php",
         type: "post",
         dataType: "json",
+        data: {
+            "date_from": date_from,
+            "date_until": date_until
+        },
         success: function (response) {
             //console.log(response);
             $("#bar_chart1_div .wait_msg").remove();

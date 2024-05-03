@@ -15,6 +15,13 @@
   <h2>Sales by day</h2>
   <div id="charts">
     <div id="bar_chart1_div">
+      <div id="date_picker">
+        <label for="date_from">From:</label>
+        <input type="date" name="date_from" id="date_from" value="2019-01-01">
+        <label for="date_until">Until:</label>
+        <input type="date" name="date_until" id="date_until" value="2019-03-31">
+        <button class="refresh_btn">Refresh</button>
+      </div>
       <h1 class="wait_msg">Chart is loading...</h1>
       <canvas id="bar_chart1"></canvas>
     </div>

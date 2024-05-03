@@ -33,27 +33,109 @@ $(document).ready(function () {
         date_from = $("#date_from").val();
         date_until = $("#date_until").val();
 
-        $.ajax({
-            url: "sales_by_date_data.php",
-            type: "post",
-            dataType: "json",
-            data: {
-                "date_from": date_from,
-                "date_until": date_until
-            },
-            success: function (response) {
-                //console.log(response);
-                destroy_chart("bar_chart1");
-                destroy_chart("line_chart1");
-                $("#bar_chart1_div .wait_msg").remove();
-                display_chart(response.total_sales, "bar_chart1", "bar", "Sales");
-                $("#line_chart1_div .wait_msg").remove();
-                display_chart(response.total_sales, "line_chart1", "line", "Sales");
-            },
-            error: function (response) {
-                //console.log(response);
-            }
-        });
+        if (Date.parse(date_from) > Date.parse(date_until)) alert("Invalid range!");
+        else {
+
+            // Total sales chart
+            $.ajax({
+                url: "sales_by_date_data.php",
+                type: "post",
+                dataType: "json",
+                data: {
+                    "date_from": date_from,
+                    "date_until": date_until
+                },
+                success: function (response) {
+                    //console.log(response);
+                    destroy_chart("bar_chart1");
+                    destroy_chart("line_chart1");
+                    $("#bar_chart1_div .wait_msg").remove();
+                    display_chart(response.total_sales, "bar_chart1", "bar", "Sales");
+                    $("#line_chart1_div .wait_msg").remove();
+                    display_chart(response.total_sales, "line_chart1", "line", "Sales");
+                },
+                error: function (response) {
+                    //console.log(response);
+                }
+            });
+
+            // Sales by gender chart
+            $.ajax({
+                url: "sales_by_gender_data.php",
+                type: "post",
+                dataType: "json",
+                data: {
+                    "date_from": date_from,
+                    "date_until": date_until
+                },
+                success: function (response) {
+                    //console.log(response);
+                    destroy_chart("pie_chart1");
+                    $("#pie_chart1_div .wait_msg").remove();
+                    display_chart(response, "pie_chart1", "pie", "Sales");
+                },
+                error: function (response) {
+                    //console.log(response);
+                }
+            });
+
+            // Payment type chart
+            $.ajax({
+                url: "payment_type_data.php",
+                type: "post",
+                dataType: "json",
+                data: {
+                    "date_from": date_from,
+                    "date_until": date_until
+                },
+                success: function (response) {
+                    destroy_chart("pie_chart2");
+                    $("#pie_chart2_div .wait_msg").remove();
+                    display_chart(response, "pie_chart2", "pie", "Payments");
+                },
+                error: function (response) {
+                    // console.log(response);
+                }
+            });
+
+            // Sales by category chart
+            $.ajax({
+                url: "category_data.php",
+                type: "post",
+                dataType: "json",
+                data: {
+                    "date_from": date_from,
+                    "date_until": date_until
+                },
+                success: function (response) {
+                    destroy_chart("bar_chart2");
+                    $("#bar_chart2_div .wait_msg").remove();
+                    display_chart(response, "bar_chart2", "bar", "Sales by category");
+                },
+                error: function (response) {
+                    // console.log(response);
+                }
+            });
+
+            // Customers' rating chart
+            $.ajax({
+                url: "rating_data.php",
+                type: "post",
+                dataType: "json",
+                data: {
+                    "date_from": date_from,
+                    "date_until": date_until
+                },
+                success: function (response) {
+                    destroy_chart("pie_chart3");
+                    $("#pie_chart3_div .wait_msg").remove();
+                    display_chart(response, "pie_chart3", "pie", "Customers' rating");
+                },
+                error: function (response) {
+                    // console.log(response);
+                }
+            });
+        }
     });
 
     $.ajax({

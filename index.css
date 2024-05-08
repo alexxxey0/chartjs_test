@@ -4,16 +4,22 @@ html, body {
     font-family: "Montserrat";
 }
 
-h1, h2 {
+h1, h2, h3 {
     text-align: center;
 }
 
-#charts {
+.charts {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5em;
     margin-bottom: 1%;
+}
+
+.dataset_title {
+    text-align: left;
+    margin-left: 5%;
+    color: red;
 }
 
 #bar_chart1_div, #line_chart1_div, #bar_chart2_div {
@@ -30,13 +36,34 @@ h1, h2 {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-#pie_charts {
+.pie_charts {
     width: 60%;
     display: flex;
     flex-direction: row;
     gap: 5%;
+    justify-content: center;
 }
 
-#pie_charts > * {
+.pie_charts > * {
     width: 50%;
+}
+
+nav {
+    position: fixed;
+    background-color: black;
+    color: white;
+    right: 5%;
+    padding: 1%;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav a:visited {
+    color: white;
+}
+
+.students_pie_charts > * {
+    width: 30%;
 }

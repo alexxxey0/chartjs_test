@@ -11,17 +11,23 @@
 </head>
 
 <body>
+  <nav>
+    <a href="#dataset1">Dataset 1</a>
+    |
+    <a href="#dataset2">Dataset 2</a>
+  </nav>
   <h1>Chart.js demo</h1>
+  <h2 class="dataset_title" id="dataset1">Dataset 1 - Supermarket sales</h2>
   <h2>Sales by day</h2>
-  <div id="charts">
+  <div class="charts">
+    <div id="date_picker">
+      <label for="date_from">From:</label>
+      <input type="date" name="date_from" id="date_from" value="2019-01-01">
+      <label for="date_until">Until:</label>
+      <input type="date" name="date_until" id="date_until" value="2019-03-31">
+      <button class="refresh_btn">Refresh</button>
+    </div>
     <div id="bar_chart1_div">
-      <div id="date_picker">
-        <label for="date_from">From:</label>
-        <input type="date" name="date_from" id="date_from" value="2019-01-01">
-        <label for="date_until">Until:</label>
-        <input type="date" name="date_until" id="date_until" value="2019-03-31">
-        <button class="refresh_btn">Refresh</button>
-      </div>
       <h1 class="wait_msg">Chart is loading...</h1>
       <canvas id="bar_chart1"></canvas>
     </div>
@@ -31,7 +37,7 @@
       <canvas id="line_chart1"></canvas>
     </div>
 
-    <div id="pie_charts">
+    <div class="pie_charts">
       <div>
         <h2>Sales by gender</h2>
         <div id="pie_chart1_div" class="pie_chart_div">
@@ -64,7 +70,27 @@
     </div>
 
   </div>
+  <h2 class="dataset_title" id="dataset2">Dataset 2 - Data about students</h2>
+  <div class="charts">
 
+    <div class="pie_charts students_pie_charts">
+      <div>
+        <h2>Students by gender</h2>
+        <div id="student_chart1_div">
+          <h1 class="wait_msg">Chart is loading...</h1>
+          <canvas id="student_chart1"></canvas>
+        </div>
+      </div>
+      <div>
+        <h2>Preferred study time</h2>
+        <div id="student_chart2_div">
+          <h1 class="wait_msg">Chart is loading...</h1>
+          <canvas id="student_chart2"></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"></script>

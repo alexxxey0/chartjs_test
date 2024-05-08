@@ -214,4 +214,34 @@ $(document).ready(function () {
             // console.log(response);
         }
     });
+
+    // Students charts
+
+    // Students gender data
+    $.ajax({
+        url: "student_gender_data.php",
+        type: "post",
+        dataType: "json",
+        success: function (response) {
+            $("#student_chart1_div .wait_msg").remove();
+            display_chart(response, "student_chart1", "doughnut", "Students");
+        },
+        error: function(response) {
+            console.log(response);
+        }
+    });
+
+    // Students preferred study time data
+    $.ajax({
+        url: "student_study_time_data.php",
+        type: "post",
+        dataType: "json",
+        success: function (response) {
+            $("#student_chart2_div .wait_msg").remove();
+            display_chart(response, "student_chart2", "pie", "Students");
+        },
+        error: function(response) {
+            console.log(response);
+        }
+    });
 });

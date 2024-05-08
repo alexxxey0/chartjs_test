@@ -244,4 +244,46 @@ $(document).ready(function () {
             console.log(response);
         }
     });
+
+    // Students' stress level
+    $.ajax({
+        url: "student_stress_level_data.php",
+        type: "post",
+        dataType: "json",
+        success: function (response) {
+            $("#student_chart3_div .wait_msg").remove();
+            display_chart(response, "student_chart3", "pie", "Students");
+        },
+        error: function(response) {
+            console.log(response);
+        }
+    });
+
+    // Students' hobbies
+    $.ajax({
+        url: "student_hobbies_data.php",
+        type: "post",
+        dataType: "json",
+        success: function (response) {
+            $("#student_chart4_div .wait_msg").remove();
+            display_chart(response, "student_chart4", "polarArea", "Students");
+        },
+        error: function(response) {
+            console.log(response);
+        }
+    });
+
+    // Students' daily studying time
+    $.ajax({
+        url: "student_studying_time_data.php",
+        type: "post",
+        dataType: "json",
+        success: function(response) {
+            $("#student_chart5_div .wait_msg").remove();
+            display_chart(response, "student_chart5", "radar", "Students");
+        },
+        error: function(response) {
+            console.log(response);
+        }
+    })
 });

@@ -67,3 +67,15 @@ nav a:visited {
 .students_pie_charts > * {
     width: 30%;
 }
+
+#student_chart4_div {
+    width: 30%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#student_chart5_div {
+    width: 40%;
+    border: 2px solid black;
+    border-radius: 5px;
+}

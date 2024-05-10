@@ -226,7 +226,7 @@ $(document).ready(function () {
             $("#student_chart1_div .wait_msg").remove();
             display_chart(response, "student_chart1", "doughnut", "Students");
         },
-        error: function(response) {
+        error: function (response) {
             console.log(response);
         }
     });
@@ -240,7 +240,7 @@ $(document).ready(function () {
             $("#student_chart2_div .wait_msg").remove();
             display_chart(response, "student_chart2", "pie", "Students");
         },
-        error: function(response) {
+        error: function (response) {
             console.log(response);
         }
     });
@@ -254,7 +254,7 @@ $(document).ready(function () {
             $("#student_chart3_div .wait_msg").remove();
             display_chart(response, "student_chart3", "pie", "Students");
         },
-        error: function(response) {
+        error: function (response) {
             console.log(response);
         }
     });
@@ -268,7 +268,7 @@ $(document).ready(function () {
             $("#student_chart4_div .wait_msg").remove();
             display_chart(response, "student_chart4", "polarArea", "Students");
         },
-        error: function(response) {
+        error: function (response) {
             console.log(response);
         }
     });
@@ -278,11 +278,11 @@ $(document).ready(function () {
         url: "student_studying_time_data.php",
         type: "post",
         dataType: "json",
-        success: function(response) {
+        success: function (response) {
             $("#student_chart5_div .wait_msg").remove();
             display_chart(response, "student_chart5", "radar", "Students");
         },
-        error: function(response) {
+        error: function (response) {
             console.log(response);
         }
     });
@@ -294,11 +294,11 @@ $(document).ready(function () {
         url: "db_student_gender_data.php",
         type: "post",
         dataType: "json",
-        success: function(response) {
+        success: function (response) {
             $("#student_chart6_div .wait_msg").remove();
             display_chart(response, "student_chart6", "doughnut", "Students");
         },
-        error: function(response) {
+        error: function (response) {
             console.log(response);
         }
     });
@@ -308,12 +308,27 @@ $(document).ready(function () {
         url: "db_student_gpa_data.php",
         type: "post",
         dataType: "json",
-        success: function(response) {
+        success: function (response) {
             $("#student_chart7_div .wait_msg").remove();
             display_chart(response, "student_chart7", "pie", "Students");
         },
-        error: function(response) {
+        error: function (response) {
             console.log(response);
         }
-    })
+    });
+
+    // Favorite subject
+    $.ajax({
+        url: "db_student_favorite_subject_data.php",
+        type: "post",
+        dataType: "json",
+        success: function (response) {
+            $("#student_chart8_div .wait_msg").remove();
+            display_chart(response, "student_chart8", "bar", "Students");
+        },
+        error: function (response) {
+            console.log(response);
+        }
+    });
+
 });

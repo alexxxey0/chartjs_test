@@ -80,3 +80,7 @@ nav a:visited {
     border: 2px solid black;
     border-radius: 5px;
 }
+
+#student_chart8_div {
+    width: 60%;
+}

@@ -285,5 +285,35 @@ $(document).ready(function () {
         error: function(response) {
             console.log(response);
         }
+    });
+
+    // Dataset 3 - data about students from database
+
+    // Gender
+    $.ajax({
+        url: "db_student_gender_data.php",
+        type: "post",
+        dataType: "json",
+        success: function(response) {
+            $("#student_chart6_div .wait_msg").remove();
+            display_chart(response, "student_chart6", "doughnut", "Students");
+        },
+        error: function(response) {
+            console.log(response);
+        }
+    });
+
+    // GPA
+    $.ajax({
+        url: "db_student_gpa_data.php",
+        type: "post",
+        dataType: "json",
+        success: function(response) {
+            $("#student_chart7_div .wait_msg").remove();
+            display_chart(response, "student_chart7", "pie", "Students");
+        },
+        error: function(response) {
+            console.log(response);
+        }
     })
 });

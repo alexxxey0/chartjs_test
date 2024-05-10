@@ -15,9 +15,11 @@
     <a href="#dataset1">Dataset 1</a>
     |
     <a href="#dataset2">Dataset 2</a>
+    |
+    <a href="#dataset3">Dataset 3</a>
   </nav>
   <h1>Chart.js demo</h1>
-  <h2 class="dataset_title" id="dataset1">Dataset 1 - Supermarket sales</h2>
+  <h2 class="dataset_title" id="dataset1">Dataset 1 - Supermarket sales (data from csv file)</h2>
   <h2>Sales by day</h2>
   <div class="charts">
     <div id="date_picker">
@@ -70,7 +72,7 @@
     </div>
 
   </div>
-  <h2 class="dataset_title" id="dataset2">Dataset 2 - Data about students</h2>
+  <h2 class="dataset_title" id="dataset2">Dataset 2 - Data about students (data from csv file)</h2>
   <div class="charts">
 
     <div class="pie_charts students_pie_charts">
@@ -109,6 +111,29 @@
       <canvas id="student_chart5"></canvas>
     </div>
 
+  </div>
+
+  <h2 class="dataset_title" id="dataset3">Dataset 3 - Data about students (data from database)</h2>
+  <div class="charts">
+    <div class="pie_charts">
+
+      <div>
+        <h2>Students by gender</h2>
+        <div id="student_chart6_div">
+          <h1 class="wait_msg">Chart is loading...</h1>
+          <canvas id="student_chart6"></canvas>
+        </div>
+      </div>
+
+      <div>
+        <h2>Students by GPA</h2>
+        <div id="student_chart7_div">
+          <h1 class="wait_msg">Chart is loading...</h1>
+          <canvas id="student_chart7"></canvas>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
